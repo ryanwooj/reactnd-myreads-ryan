@@ -13,14 +13,11 @@ class Books extends Component {
               width: 120,
               height: 180,
               backgroundImage:`url("${book.imageLinks.smallThumbnail}")`
-            }}>
-          </div>
+            }}/>
           <div className="book-shelf-changer">
             <select
-              onChange= {(event) => this.props.optionChange(
-              this.props.book, event.target.value)}
-              value={this.props.currentShelf}
-            >
+              onChange= {(event) => this.props.optionChange(this.props.book, event.target.value)}
+              value={this.props.currentShelf}>
               <option value="move" disabled> Move to...</option>
               <option value="wantToRead">Want To Read</option>
               <option value="currentlyReading">Curently Reading</option>
