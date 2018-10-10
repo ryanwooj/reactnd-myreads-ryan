@@ -21,7 +21,7 @@ class SearchBooks extends React.Component {
     e.preventDefault()
     BooksAPI.search(this.state.query).then((books) => {
       this.setState({books})
-      // console.log(books);
+      console.log(books);
     })
   }
 

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
 class Books extends Component {
+
+
   render() {
-    const { book } = this.props;
+    const { book, optionChange, currentShelf } = this.props;
 
     return (
       <div className="book">
@@ -16,8 +18,8 @@ class Books extends Component {
             }}/>
           <div className="book-shelf-changer">
             <select
-              onChange= {(event) => this.props.optionChange(this.props.book, event.target.value)}
-              value={this.props.currentShelf}>
+              onChange= {(event) => optionChange(book, event.target.value)}
+              value={currentShelf}>
               <option value="move" disabled> Move to...</option>
               <option value="currentlyReading">Curently Reading</option>
               <option value="wantToRead">Want To Read</option>
@@ -26,8 +28,9 @@ class Books extends Component {
             </select>
           </div>
         </div>
-        <p className="book-title">{this.props.book.title}</p>
-        <p className="book-authors">{this.props.book.authors}</p>
+        <p className="book-title">{book.title}</p>
+        <p className="book-authors">{book.authors}</p>
+        <p className="book-authors">Rating: {book.averageRating}</p>
       </div>
     );
   }

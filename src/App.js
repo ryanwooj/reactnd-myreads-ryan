@@ -8,7 +8,7 @@ import './App.css'
 class BooksApp extends Component {
 
   state = {
-    books : []
+    books : [],
   }
 
   componentDidMount() {
