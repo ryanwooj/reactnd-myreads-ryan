@@ -4,7 +4,7 @@ class Books extends Component {
 
 
   render() {
-    const { book, optionChange, currentShelf } = this.props;
+    const { book, optionChange, currentShelf, rating, changeRating } = this.props;
 
     return (
       <div className="book">
@@ -30,7 +30,20 @@ class Books extends Component {
         </div>
         <p className="book-title">{book.title}</p>
         <p className="book-authors">{book.authors}</p>
-        <p className="book-authors">Rating: {book.averageRating}</p>
+        {/* {console.log(book.id, rating.bookId)} */}
+        {rating.filter(r => r.bookId === book.id)
+          .map((rate, index) => (
+            <p className="book-authors" key={index}>Rating: {rate.rate}</p>
+          ))
+        }
+        <select onChange={(event) => changeRating(book, event.target.value)} value={book.id === rating.bookId && rating.rate}>
+          <option value="Select"> Select ...</option>
+          <option value="4.0">4.0</option>
+          <option value="4.5">4.5</option>
+          <option value="5.0">5.0</option>
+          <option value="3.5">3.5</option>
+        </select>
+
       </div>
     );
   }

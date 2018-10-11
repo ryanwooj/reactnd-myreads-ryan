@@ -6,7 +6,7 @@ import Books from './Books.js'
 class ListBooks extends React.Component {
 
   render() {
-    const { booksOnShelf, optionChange } = this.props
+    const { booksOnShelf, optionChange, rating, changeRating } = this.props
     const shelves = ["currentlyReading", "wantToRead", "read"]
     const status = ["Curently Reading", "Want To Read", "Read"]
 
@@ -16,6 +16,7 @@ class ListBooks extends React.Component {
         <div className="list-books-title">
           <h1>Ryan's Reads</h1>
         </div>
+        {console.log(rating)}
         <div className="list-books-content">
           {shelves.map((shelve, index) => (
             <div className="bookshelf" key={index}>
@@ -29,6 +30,8 @@ class ListBooks extends React.Component {
                           book = {book}
                           optionChange={optionChange}
                           currentShelf= {shelve}
+                          changeRating={changeRating}
+                          rating={rating}
                         />
                       </li>)
                     )

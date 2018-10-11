@@ -9,6 +9,10 @@ class BooksApp extends Component {
 
   state = {
     books : [],
+    rating: [{
+      bookId: '',
+      rate: 0
+    }]
   }
 
   componentDidMount() {
@@ -26,6 +30,14 @@ class BooksApp extends Component {
       })
   }
 
+  changeRating = (book, rating) => {
+    let newRate = {
+      bookId: book.id,
+      rate: rating
+    }
+    this.setState({ rating: this.state.rating.concat(newRate)})
+  }
+
   render() {
     return (
       <div className="app">
@@ -35,6 +47,8 @@ class BooksApp extends Component {
             <ListBooks
               optionChange={this.optionChange}
               booksOnShelf={this.state.books}
+              rating={this.state.rating}
+              changeRating={this.changeRating}
             />
           )}
         />
